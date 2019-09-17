@@ -8,7 +8,7 @@ sudo phpdismod -s cli xdebug
 
 ## see https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
 EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+curl -s -L https://getcomposer.org/installer > composer-setup.php
 ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
 
 if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
