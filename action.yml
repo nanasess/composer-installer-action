@@ -1,0 +1,10 @@
+name: 'composer-installer'
+description: 'Composer installer. Base on phar.'
+author: 'nanasess'
+branding:
+  color: purple
+  icon: download
+runs:
+  using: 'node12'
+  main: 'lib/setup-composer.js'
+

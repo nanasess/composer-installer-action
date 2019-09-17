@@ -1,0 +1,35 @@
+## Rest of the file pulled from https://github.com/actions/setup-python/blob/master/.github/workflows/workflow.yml
+name: Main workflow
+on: [push, pull_request]
+jobs:
+  run:
+    name: Run
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-18.04, ubuntu-16.04]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Set Node.js 10.x
+      uses: actions/setup-node@master
+      with:
+        version: 10.x
+
+    - name: npm install
+      run: npm install
+
+    - name: Lint
+      run: npm run format-check
+
+    - name: npm test
+      run: npm test
+
+    - name: Setup composer
+      uses: ./
+
+    - name: composer list
+      run: |
+        composer list
+
