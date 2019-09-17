@@ -1,11 +1,11 @@
-# Composer-phar
+# Composer installer of Github Actions
 
 <p align="left">
-  <a href="https://github.com/nanasess/composer-phar"><img alt="GitHub Actions status" src="https://github.com/nanasess/composer-phar/workflows/Main%20workflow/badge.svg"></a>
+  <a href="https://github.com/nanasess/composer-installer"><img alt="GitHub Actions status" src="https://github.com/nanasess/composer-installer/workflows/Main%20workflow/badge.svg"></a>
 </p>
 
 
-GitHub Actions for [Composer](https://getcomposer.org). Base on phar.
+[Composer](https://getcomposer.org) installer of GitHub Actions.
 
 
 
