@@ -7,5 +7,21 @@
 
 [Composer](https://getcomposer.org) installer of GitHub Actions.
 
+# Usage
 
+See [action.yml](action.yml)
+
+``` yaml
+steps:
+- uses: actions/checkout@master
+- uses: nanasess/composer-installer-action@v1
+- run: composer install
+```
+# License
+
+The scripts and documentation in this project are released under the [MIT License](LICENSE)
+
+# Contributions
+
+Contributions are welcome!  See [Contributor's Guide](docs/contributors.md)
 
