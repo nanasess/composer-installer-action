@@ -1,4 +1,4 @@
-name: 'composer-installer'
+name: 'composer-installer-action'
 description: 'Composer installer. Base on phar.'
 author: 'nanasess'
 branding:

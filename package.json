@@ -1,5 +1,5 @@
 {
-  "name": "composer-installer",
+  "name": "composer-installer-action",
   "version": "1.0.0",
   "private": true,
   "description": "Composer installer. Base on phar.",
