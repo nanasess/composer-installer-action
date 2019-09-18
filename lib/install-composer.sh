@@ -7,7 +7,7 @@ release=$(lsb_release -cs)
 # sudo phpdismod -s cli xdebug
 
 ## see https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
-EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+EXPECTED_SIGNATURE="$(curl -s https://composer.github.io/installer.sig)"
 curl -s -L https://getcomposer.org/installer > composer-setup.php
 ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
 
