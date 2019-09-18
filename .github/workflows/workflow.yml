@@ -32,6 +32,9 @@ jobs:
       with:
         php-version: ${{ matrix.php }}
 
+    - name: phpinfo
+      run: php -i
+
     - name: Setup composer
       uses: ./
 

@@ -4,7 +4,7 @@ set -eo pipefail
 
 release=$(lsb_release -cs)
 
-sudo phpdismod -s cli xdebug
+# sudo phpdismod -s cli xdebug
 
 ## see https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
 EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
