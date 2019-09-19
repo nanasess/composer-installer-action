@@ -32,6 +32,12 @@ jobs:
     - name: npm test
       run: npm test
 
+    - name: Remove libpq5
+      if: matrix.php <= 5.5
+      run: |
+        sudo apt-get purge 'php*-fpm'
+        sudo apt-get purge libpq5
+
     - name: Setup PHP
       uses: nanasess/setup-php@master
       with:
