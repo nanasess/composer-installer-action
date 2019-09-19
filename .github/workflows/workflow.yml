@@ -39,7 +39,7 @@ jobs:
         sudo apt-get purge libpq5
 
     - name: Setup PHP
-      uses: nanasess/setup-php@master
+      uses: nanasess/setup-php@setu-openssl
       with:
         php-version: ${{ matrix.php }}
 
