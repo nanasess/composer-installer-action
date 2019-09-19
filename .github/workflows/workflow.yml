@@ -8,6 +8,12 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-18.04, ubuntu-16.04]
+        php: [ 5.4, 5.5, 5.6, 7.1, 7.2, 7.3 ]
+        exclude:
+          - operating-system: ubuntu-18.04
+            php: 5.4
+          - operating-system: ubuntu-18.04
+            php: 5.5
     steps:
     - name: Checkout
       uses: actions/checkout@master
@@ -25,6 +31,20 @@ jobs:
 
     - name: npm test
       run: npm test
+
+    - name: Remove libpq5
+      if: matrix.php <= 5.5
+      run: |
+        sudo apt-get purge 'php*-fpm'
+        sudo apt-get purge libpq5
+
+    - name: Setup PHP
+      uses: nanasess/setup-php@setu-openssl
+      with:
+        php-version: ${{ matrix.php }}
+
+    - name: phpinfo
+      run: php -i
 
     - name: Setup composer
       uses: ./
