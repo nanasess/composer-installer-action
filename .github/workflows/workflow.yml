@@ -7,13 +7,9 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-18.04, ubuntu-16.04]
-        php: [ 5.4, 5.5, 5.6, 7.1, 7.2, 7.3 ]
-        exclude:
-          - operating-system: ubuntu-18.04
-            php: 5.4
-          - operating-system: ubuntu-18.04
-            php: 5.5
+        operating-system: [ubuntu-18.04, ubuntu-16.04, windows-2019, windows-2016]
+        php: [ 5.6, 7.1, 7.2, 7.3 ]
+
     steps:
     - name: Checkout
       uses: actions/checkout@master
@@ -27,24 +23,17 @@ jobs:
       run: npm install
 
     - name: Lint
+      if: matrix.operating-system == 'ubuntu-18.04' || matrix.operating-system == 'ubuntu-16.04'
       run: npm run format-check
 
     - name: npm test
+      if: matrix.operating-system == 'ubuntu-18.04' || matrix.operating-system == 'ubuntu-16.04'
       run: npm test
 
-    - name: Remove libpq5
-      if: matrix.php <= 5.5
-      run: |
-        sudo apt-get purge 'php*-fpm'
-        sudo apt-get purge libpq5
-
     - name: Setup PHP
-      uses: nanasess/setup-php@setu-openssl
+      uses: nanasess/setup-php@master
       with:
         php-version: ${{ matrix.php }}
-
-    - name: phpinfo
-      run: php -i
 
     - name: Setup composer
       uses: ./
