@@ -2,10 +2,16 @@
 
 <p align="left">
   <a href="https://github.com/nanasess/composer-installer-action"><img alt="GitHub Actions status" src="https://github.com/nanasess/composer-installer-action/workflows/Main%20workflow/badge.svg"></a>
+  <a href="https://github.com/nanasess/composer-installer-action/blob/master/LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/license-MIT-428f7e.svg"></a>
 </p>
 
 
 [Composer](https://getcomposer.org) installer of GitHub Actions.
+
+## OS/Platform support
+
+- ubuntu-latest, ubuntu-18.04, or ubuntu-16.04
+- windows-latest, windows-2019, or windows-2016
 
 # Usage
 
@@ -14,7 +20,7 @@ See [action.yml](action.yml)
 ``` yaml
 steps:
 - uses: actions/checkout@master
-- uses: nanasess/composer-installer-action@v1
+- uses: nanasess/composer-installer-action@master
 - run: composer install
 ```
 # License
