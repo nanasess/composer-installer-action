@@ -3,6 +3,6 @@
 set -eo pipefail
 
 COMPOSER_ALLOW_SUPERUSER=1
-sudo composer selfupdate
+composer selfupdate
 RESULT=$?
 exit $RESULT

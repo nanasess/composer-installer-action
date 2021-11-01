@@ -15,7 +15,7 @@ then
 fi
 
 COMPOSER_ALLOW_SUPERUSER=1
-sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
+php composer-setup.php --install-dir=/usr/bin --filename=composer
 RESULT=$?
 rm composer-setup.php
 exit $RESULT
