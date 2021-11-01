@@ -10,7 +10,7 @@
 
 ## OS/Platform support
 
-- ubuntu-latest, ubuntu-18.04, or ubuntu-16.04
+- ubuntu-latest, ubuntu-20.04, or ubuntu-18.04
 - windows-latest, windows-2019, or windows-2016
 
 # Usage
