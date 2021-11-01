@@ -2,8 +2,6 @@
 
 set -eo pipefail
 
-release=$(lsb_release -cs)
-
 ## see https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
 EXPECTED_SIGNATURE="$(curl -s https://composer.github.io/installer.sig)"
 curl -s -L https://getcomposer.org/installer > composer-setup.php
