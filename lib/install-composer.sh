@@ -2,8 +2,6 @@
 
 set -eo pipefail
 
-release=$(lsb_release -cs)
-
 ## see https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
 EXPECTED_SIGNATURE="$(curl -s https://composer.github.io/installer.sig)"
 curl -s -L https://getcomposer.org/installer > composer-setup.php
@@ -17,7 +15,15 @@ then
 fi
 
 COMPOSER_ALLOW_SUPERUSER=1
-sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
+
+## run as sudo if available
+if command -v sudo &> /dev/null
+then
+    sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
+else
+    php composer-setup.php --install-dir=/usr/bin --filename=composer
+fi
+
 RESULT=$?
 rm composer-setup.php
 exit $RESULT
