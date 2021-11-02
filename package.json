@@ -1,6 +1,6 @@
 {
   "name": "composer-installer-action",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "private": true,
   "description": "Composer installer. Base on phar.",
   "main": "lib/setup-composer.js",
