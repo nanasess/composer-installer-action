@@ -1,0 +1,14 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  run:
+    name: Run
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-20.04]
+    container:
+      image: mediawiki:1.31
+    steps:
+    - uses: nanasess/composer-installer-action@master
+    - run: composer --version
