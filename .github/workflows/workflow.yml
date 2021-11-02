@@ -8,16 +8,16 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-20.04, ubuntu-18.04, windows-2019, windows-2016]
-        php: [ 5.6, 7.1, 7.2, 7.3 ]
+        php: [ '5.6', '7.1', '7.2', '7.3', '7.4', '8.0' ]
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
 
-    - name: Set Node.js 10.x
-      uses: actions/setup-node@master
+    - name: Set Node.js lts
+      uses: actions/setup-node@v2
       with:
-        version: 10.x
+        node-version: 'lts/*'
 
     - name: npm install
       run: npm install
@@ -31,7 +31,7 @@ jobs:
       run: npm test
 
     - name: Setup PHP
-      uses: nanasess/setup-php@master
+      uses: nanasess/setup-php@v3
       with:
         php-version: ${{ matrix.php }}
 
